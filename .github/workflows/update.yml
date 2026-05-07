@@ -5,9 +5,14 @@ on:
     - cron: '0 0 * * *' # Run every day at midnight UTC
   workflow_dispatch: # Allow manual triggers from the GitHub Actions tab
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,11 +34,6 @@ jobs:
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "chore: auto-update profile stats"
-            git push
-          else
-            echo "No changes in README.md, skipping commit."
-          fi
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-update profile stats" && git push)
