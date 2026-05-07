@@ -6,6 +6,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 const readmePath = "../README.md"
@@ -44,6 +46,11 @@ func updateSection(content string, sectionName string, newData string) string {
 }
 
 func main() {
+	// Load local environment variables from .env file if available
+	if err := godotenv.Load("../.env"); err != nil {
+		log.Println("Warning: Error loading .env file, relying on system/environment variables.")
+	}
+
 	// Read the target markdown file
 	contentBytes, err := os.ReadFile(readmePath)
 	if err != nil {
