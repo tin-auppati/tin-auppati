@@ -52,12 +52,22 @@ func main() {
 
 	content := string(contentBytes)
 
-	// Format current time nicely (e.g., "May 7, 2026, 10:52 AM")
-	currentTimeStr := time.Now().Format("Jan 2, 2006, 3:04 PM")
-	newData := "**Hello from Go Automator! Update time:** " + currentTimeStr
-
 	// Update the "test" section
-	updatedContent := updateSection(content, "test", newData)
+	currentTimeStr := time.Now().Format("Jan 2, 2006, 3:04 PM")
+	testData := "**Hello from Go Automator! Update time:** " + currentTimeStr
+	updatedContent := updateSection(content, "test", testData)
+
+	// Fetch GitHub stats for user "tin-auppati"
+	username := "tin-auppati"
+	stats, err := FetchGitHubStats(username)
+	if err != nil {
+		log.Printf("Warning: failed to fetch GitHub stats: %v", err)
+	} else {
+		// Format the statistics into markdown
+		statsData := fmt.Sprintf("- 📦 **Public Repos:** %d\n- 👥 **Followers:** %d", stats.PublicRepos, stats.Followers)
+		// Update the "github_stats" section
+		updatedContent = updateSection(updatedContent, "github_stats", statsData)
+	}
 
 	// If no tags were found or nothing changed, exit early
 	if updatedContent == content {
@@ -71,5 +81,5 @@ func main() {
 		log.Fatalf("Failed to write updated content to %s: %v", readmePath, err)
 	}
 
-	fmt.Printf("Successfully updated %s 'test' section at %s\n", readmePath, currentTimeStr)
+	fmt.Printf("Successfully updated %s sections 'test' and 'github_stats' at %s\n", readmePath, currentTimeStr)
 }
