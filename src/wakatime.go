@@ -130,6 +130,7 @@ func FetchWakaTimeStats() (string, error) {
 	if len(markdown) > 0 && markdown[len(markdown)-1] == '\n' {
 		markdown = markdown[:len(markdown)-1]
 	}
+	
 
 	return markdown, nil
 }
