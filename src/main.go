@@ -57,14 +57,17 @@ func main() {
 	testData := "**Hello from Go Automator! Update time:** " + currentTimeStr
 	updatedContent := updateSection(content, "test", testData)
 
-	// Fetch GitHub stats for user "tin-auppati"
-	username := "tin-auppati"
+	// Fetch GitHub stats for user dynamically from GITHUB_USERNAME env var
+	username := os.Getenv("GITHUB_USERNAME")
+	if username == "" {
+		username = "tin-auppati"
+	}
 	stats, err := FetchGitHubStats(username)
 	if err != nil {
 		log.Printf("Warning: failed to fetch GitHub stats: %v", err)
 	} else {
-		// Format the statistics into markdown
-		statsData := fmt.Sprintf("- 📦 **Public Repos:** %d\n- 👥 **Followers:** %d", stats.PublicRepos, stats.Followers)
+		// Format the statistics into markdown including private repo count
+		statsData := fmt.Sprintf("- 📦 **Public Repos:** %d\n- 🔒 **Private Repos:** %d\n- 👥 **Followers:** %d", stats.PublicRepos, stats.TotalPrivateRepos, stats.Followers)
 		// Update the "github_stats" section
 		updatedContent = updateSection(updatedContent, "github_stats", statsData)
 	}
