@@ -23,7 +23,7 @@ I'm a passionate **Software Engineer** dedicated to building scalable, robust, a
 ### 📊 Recent Projects & Updates
 
 <!-- START_SECTION:test -->
-**Hello from Go Automator! Update time:** May 7, 2026, 11:38 AM
+**Hello from Go Automator! Update time:** May 7, 2026, 11:44 AM
 <!-- END_SECTION:test -->
 
 ---
@@ -35,6 +35,14 @@ I'm a passionate **Software Engineer** dedicated to building scalable, robust, a
 - 🔒 **Private Repos:** 8
 - 👥 **Followers:** 0
 <!-- END_SECTION:github_stats -->
+
+---
+
+### 📊 Weekly Coding Stats (WakaTime)
+
+<!-- START_SECTION:wakatime -->
+_No coding stats recorded for the last 7 days._
+<!-- END_SECTION:wakatime -->
 
 ---
 

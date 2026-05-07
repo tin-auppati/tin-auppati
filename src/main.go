@@ -79,6 +79,15 @@ func main() {
 		updatedContent = updateSection(updatedContent, "github_stats", statsData)
 	}
 
+	// Fetch WakaTime stats
+	wakaStats, err := FetchWakaTimeStats()
+	if err != nil {
+		log.Printf("Warning: failed to fetch WakaTime stats: %v", err)
+	} else {
+		// Update the "wakatime" section
+		updatedContent = updateSection(updatedContent, "wakatime", wakaStats)
+	}
+
 	// If no tags were found or nothing changed, exit early
 	if updatedContent == content {
 		log.Println("Warning: No changes were made to the file content. Verify tag presence/names.")
@@ -91,5 +100,5 @@ func main() {
 		log.Fatalf("Failed to write updated content to %s: %v", readmePath, err)
 	}
 
-	fmt.Printf("Successfully updated %s sections 'test' and 'github_stats' at %s\n", readmePath, currentTimeStr)
+	fmt.Printf("Successfully updated %s sections 'test', 'github_stats', and 'wakatime' at %s\n", readmePath, currentTimeStr)
 }
