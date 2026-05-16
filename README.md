@@ -23,7 +23,7 @@ I'm a passionate **Software Engineer** dedicated to building scalable, robust, a
 ### 📊 Recent Projects & Updates
 
 <!-- START_SECTION:test -->
-**Hello from Go Automator! Update time:** May 15, 2026, 2:04 AM
+**Hello from Go Automator! Update time:** May 16, 2026, 1:56 AM
 <!-- END_SECTION:test -->
 
 ---
@@ -31,8 +31,8 @@ I'm a passionate **Software Engineer** dedicated to building scalable, robust, a
 ### 📈 GitHub Stats
 
 <!-- START_SECTION:github_stats -->
-- 📦 **Public Repos:** 10
-- 🔒 **Private Repos:** 10
+- 📦 **Public Repos:** 11
+- 🔒 **Private Repos:** 9
 - 👥 **Followers:** 0
 <!-- END_SECTION:github_stats -->
 
@@ -41,11 +41,11 @@ I'm a passionate **Software Engineer** dedicated to building scalable, robust, a
 ### 📊 Weekly Coding Stats (WakaTime)
 
 <!-- START_SECTION:wakatime -->
-- 🐹 **Go**: 2 hrs 38 mins (81.7%)
-- 🟦 **TypeScript**: 22 mins (11.9%)
-- 🎨 **CSS**: 10 mins (5.4%)
-- ⚙️ **YAML**: 0 secs (0.5%)
-- 📝 **Markdown**: 0 secs (0.4%)
+- 🟦 **TypeScript**: 2 hrs 21 mins (37.3%)
+- 🐍 **Python**: 1 hr 50 mins (29.0%)
+- 🐹 **Go**: 1 hr 30 mins (23.9%)
+- 💻 **Git Config**: 14 mins (3.9%)
+- 🐚 **Bash**: 7 mins (2.1%)
 <!-- END_SECTION:wakatime -->
 
 ---
